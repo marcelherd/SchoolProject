@@ -182,7 +182,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>school</finalName>
+		<finalName>SchoolProject</finalName>
 
 		<plugins>
 			<plugin>
