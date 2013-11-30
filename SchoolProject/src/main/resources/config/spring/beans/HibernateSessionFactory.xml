@@ -15,16 +15,11 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
 			</props>
 		</property>
 
-		<!-- Unnecessary.. I hope. 
-		<property name="mappingResources">
-			<list>
-				<value>com/mkyong/customer/hibernate/Customer.hbm.xml</value>
-			</list>
-		</property>
-		-->
-		
 	</bean>
+
 </beans>

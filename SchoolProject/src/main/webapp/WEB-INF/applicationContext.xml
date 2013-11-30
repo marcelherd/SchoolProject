@@ -8,7 +8,10 @@
 	<!-- Database Configuration -->
 	<import resource="classes/config/spring/beans/DataSource.xml"/>
 	<import resource="classes/config/spring/beans/HibernateSessionFactory.xml"/>
-
+	
+	<!-- Security Configuration -->
+	<import resource="springSecurityContext.xml" /> 
+	
 	<context:component-scan base-package="eu.shishigami" />
 	
 	<context:annotation-config />
