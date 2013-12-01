@@ -29,19 +29,16 @@
 		<logout logout-success-url="/index.jsf" logout-url="/j_spring_security_logout.jsf"
 			delete-cookies="JSESSIONID" invalidate-session="true" />
 	</http>
+	
+	<beans:bean id="jdbcDaoImpl" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+	    <beans:property name="enableGroups" value="true" />
+	    <beans:property name="enableAuthorities" value="false" />
+	    <beans:property name="dataSource" ref="dataSource" />
+	</beans:bean>    
 
 	<authentication-manager alias="authenticationManager">
-		<authentication-provider>
-			<jdbc-user-service data-source-ref="dataSource"
-				id="userDetailsService"
-
-				users-by-username-query="SELECT username,password,enabled 
-				FROM users 
-				WHERE username=?"
-
-				authorities-by-username-query="SELECT u.username, ur.authority 
-				FROM users u, user_roles ur 
-				WHERE u.user_id = ur.user_id AND u.username=?" />
+		<authentication-provider user-service-ref="jdbcDaoImpl">
+			<!-- <jdbc-user-service data-source-ref="dataSource" />  -->
 		</authentication-provider>
 	</authentication-manager>
 
