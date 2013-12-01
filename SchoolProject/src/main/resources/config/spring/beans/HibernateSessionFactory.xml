@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 
 		<property name="dataSource">
 			<ref bean="dataSource" />
@@ -15,16 +15,11 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
 			</props>
 		</property>
 
-		<!-- Unnecessary.. I hope. 
-		<property name="mappingResources">
-			<list>
-				<value>com/mkyong/customer/hibernate/Customer.hbm.xml</value>
-			</list>
-		</property>
-		-->
-		
 	</bean>
+
 </beans>
