@@ -31,8 +31,6 @@
 	</http>
 	
 	<beans:bean id="jdbcDaoImpl" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
-	    <beans:property name="enableGroups" value="true" />
-	    <beans:property name="enableAuthorities" value="false" />
 	    <beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
 	
