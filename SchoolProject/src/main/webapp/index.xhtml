@@ -11,34 +11,26 @@
 
 </h:head>
 <h:body>
-	<h:form id="mainForm">
-		<h1>Test</h1>
-		<p:commandButton id="testButton" process="@this" value="Test"
-			actionListener="#{testController.handleTest}" />
-		<h1>Login</h1>
-		<div>
-			<form name="loginForm" action="j_spring_security_check" method="POST">
-				<table>
-					<tr>
-						<td>User</td>
-						<td><input type="text" name="j_username" value="" /></td>
-					</tr>
-					<tr>
-						<td>Password</td>
-						<td><input type="password" name="j_password" value="" /></td>
-					</tr>
-					<tr>
-						<td colspan="2"><input type="submit" name="submit"
-							value="Submit" /></td>
-					</tr>
-					<tr>
-						<td colspan="2"><input type="reset" name="reset"
-							value="Reset" /></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<p:messages autoUpdate="true" />
-	</h:form>
+	<h1>Login</h1>
+	<div>
+		<form name="loginForm" action="j_spring_security_check" method="POST">
+			<table>
+				<tr>
+					<td>User</td>
+					<td><input type="text" name="j_username" value="" /></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="j_password" value="" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" name="submit" value="Submit" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="reset" name="reset" value="Reset" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
 </h:body>
 </html>

@@ -26,19 +26,25 @@
 
 		<form-login login-page="/index.jsf" default-target-url="/pages/home.jsf"
 			authentication-failure-url="/index.jsf?login_error=1" />
+
 		<logout logout-success-url="/index.jsf" logout-url="/j_spring_security_logout.jsf"
 			delete-cookies="JSESSIONID" invalidate-session="true" />
 	</http>
-	
-	<beans:bean id="jdbcDaoImpl" class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
-	    <beans:property name="dataSource" ref="dataSource" />
+
+	<beans:bean id="jdbcDaoImpl"
+		class="org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl">
+		<beans:property name="dataSource" ref="dataSource" />
 	</beans:bean>
-	
-	<beans:bean id='bCryptPasswordEncoder' class='org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder'/>
+
+	<beans:bean id='bCryptPasswordEncoder'
+		class='org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' />
+
+	<beans:bean id="customUserDetailsService"
+		class="eu.shishigami.school.auth.CustomUserDetailsService" />
 
 	<authentication-manager alias="authenticationManager">
-		<authentication-provider user-service-ref="jdbcDaoImpl">
-			<password-encoder ref="bCryptPasswordEncoder"/>
+		<authentication-provider user-service-ref="customUserDetailsService">
+			<password-encoder ref="bCryptPasswordEncoder" />
 		</authentication-provider>
 	</authentication-manager>
 
