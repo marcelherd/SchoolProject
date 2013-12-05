@@ -39,17 +39,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		boolean credentialsNonExpired = true;
 		boolean accountNonLocked = true;
 
-		return new User(user.getUsername(), user.getPassword(), enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, getAuthorities(user.getGroups()));
-	}
-
-	public Collection<? extends GrantedAuthority> getAuthorities(List<GroupEntity> groups) {
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-
-		for (GroupEntity group : groups) {
-			authorities.addAll(getAuthorities(group));
-		}
-
-		return authorities;
+		return new User(user.getUsername(), user.getPassword(), enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, getAuthorities(user.getGroup()));
 	}
 
 	public Collection<? extends GrantedAuthority> getAuthorities(GroupEntity group) {

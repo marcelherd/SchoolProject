@@ -1,8 +1,5 @@
 package eu.shishigami.school.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,15 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
-
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Getter
@@ -50,9 +46,9 @@ public class UserEntity {
 
 	private boolean enabled = true;
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "user_groups", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = { @JoinColumn(name = "group_id") })
-	private List<GroupEntity> groups = new ArrayList<GroupEntity>();
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "group_id")
+	private GroupEntity group;
 
 	@Override
 	public int hashCode() {
