@@ -47,6 +47,8 @@ public class Initializer {
 //		user.setPassword(new BCryptPasswordEncoder().encode("123qwe"));
 //		user.setFirstName("Marcel");
 //		user.setLastName("Herd");
+//		user.setEmail("info@shishigami.eu");
+//		user.setEnabled(true);
 //		user = userService.save(user);
 //		
 //		List<RoleEntity> roles = new ArrayList<RoleEntity>();

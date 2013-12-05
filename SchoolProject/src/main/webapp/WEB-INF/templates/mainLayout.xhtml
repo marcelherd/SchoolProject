@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>SchoolProject</title>
+</h:head>
+
+<h:body>
+	<!-- Stylesheets -->
+	<h:outputStylesheet name="bootstrap.css" library="css" />
+	<h:outputStylesheet name="bootstrap-cosmo.css" library="css" />
+	<h:outputStylesheet name="main.css" library="css" />
+
+	<!-- Scripts -->
+	<h:outputScript library="primefaces" name="jquery/jquery.js" />
+	<h:outputScript name="bootstrap.js" library="js" />
+	<h:outputScript name="main.js" library="js" />
+
+	<div class="page">
+		<div class="page-head">
+			<div class="page-navigation">
+				<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="#">SchoolProject</a>
+					</div>
+				</nav>
+			</div>
+		</div>
+
+		<div class="page-body">
+			<div class="container">
+				<ui:insert name="bodyContent">[Body Content]</ui:insert>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-footer">
+		<div class="container">
+			<p class="muted credit">Copyright &copy; 2013 BASF IT Services <a class="pull-right" href="../j_spring_security_logout.jsf">Logout</a></p>
+		</div>
+	</div>
+
+</h:body>
+
+</html>
