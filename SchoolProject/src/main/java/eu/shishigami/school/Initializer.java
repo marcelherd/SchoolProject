@@ -42,27 +42,52 @@ public class Initializer {
 //		adminGroup.setGroupName("Admin");		
 //		adminGroup = groupService.save(adminGroup);
 //		
-//		UserEntity user = new UserEntity();
-//		user.setUsername("Admin");
-//		user.setPassword(new BCryptPasswordEncoder().encode("123qwe"));
-//		user.setFirstName("Marcel");
-//		user.setLastName("Herd");
-//		user.setEmail("info@shishigami.eu");
-//		user.setEnabled(true);
-//		user = userService.save(user);
+//		GroupEntity userGroup = new GroupEntity();
+//		userGroup.setGroupName("User");
+//		userGroup = groupService.save(userGroup);
 //		
-//		List<RoleEntity> roles = new ArrayList<RoleEntity>();
-//		roles.add(userRole);
-//		roles.add(adminRole);
-//		adminGroup.setRoles(roles);
+//		UserEntity adminUser = new UserEntity();
+//		adminUser.setUsername("Admin");
+//		adminUser.setPassword(new BCryptPasswordEncoder().encode("123qwe"));
+//		adminUser.setFirstName("Marcel");
+//		adminUser.setLastName("Herd");
+//		adminUser.setEmail("info@shishigami.eu");
+//		adminUser.setEnabled(true);
+//		adminUser = userService.save(adminUser);
+//		
+//		UserEntity normalUser = new UserEntity();
+//		normalUser.setUsername("User");
+//		normalUser.setPassword(new BCryptPasswordEncoder().encode("123qwe"));
+//		normalUser.setFirstName("Marcel");
+//		normalUser.setLastName("Herd");
+//		normalUser.setEmail("info@shishigami.eu");
+//		normalUser.setEnabled(true);
+//		normalUser = userService.save(normalUser);
+//		
+//		List<RoleEntity> rolesAdmin = new ArrayList<RoleEntity>();
+//		rolesAdmin.add(userRole);
+//		rolesAdmin.add(adminRole);
+//		adminGroup.setRoles(rolesAdmin);
 //		
 //		adminGroup = groupService.save(adminGroup);
 //		
-//		List<GroupEntity> groups = new ArrayList<GroupEntity>();
-//		groups.add(adminGroup);
-//		user.setGroups(groups);
+//		List<RoleEntity> rolesUser = new ArrayList<RoleEntity>();
+//		rolesUser.add(userRole);
+//		userGroup.setRoles(rolesUser);
 //		
-//		user = userService.save(user);
+//		userGroup = groupService.save(userGroup);
+//		
+//		List<GroupEntity> adminGroups = new ArrayList<GroupEntity>();
+//		adminGroups.add(adminGroup);
+//		adminUser.setGroups(adminGroups);
+//		
+//		adminUser = userService.save(adminUser);
+//		
+//		List<GroupEntity> userGroups = new ArrayList<GroupEntity>();
+//		userGroups.add(userGroup);
+//		normalUser.setGroups(userGroups);
+//		
+//		normalUser = userService.save(normalUser);
 	}
 
 }

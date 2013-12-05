@@ -13,6 +13,13 @@
 			</div>
 			
 			<div class="panel-body">
+				<h:panelGroup rendered="#{param.login_error != null}">
+					<div class="alert alert-danger alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+						<strong>Error!</strong> Wrong username or password.
+					</div>
+				</h:panelGroup>
+			
 				<form class="form-horizontal" role="form" action="j_spring_security_check" method="POST">
 					<div class="form-group">
 						<label for="j_username" class="col-md-1 control-label">Username</label>

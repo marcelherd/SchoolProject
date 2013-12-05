@@ -38,3 +38,19 @@ body {
 .container .credit {
 	margin: 20px 0;
 }
+
+.spacing-right-5 {
+	margin-right: 5px;
+}
+
+.spacing-right-10 {
+	margin-right: 10px;
+}
+
+.spacing-right-15 {
+	margin-right: 15px;
+}
+
+.spacing-right-50 {
+	margin-right: 50px;
+}
