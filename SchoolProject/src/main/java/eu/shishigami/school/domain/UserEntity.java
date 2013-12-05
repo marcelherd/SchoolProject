@@ -15,6 +15,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.data.annotation.Transient;
 
 @Entity
 @Getter
@@ -49,6 +50,17 @@ public class UserEntity {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "group_id")
 	private GroupEntity group;
+	
+	@Transient
+	public boolean hasRole(String roleName) {
+		for (RoleEntity role : group.getRoles()) {
+			if (role.getRoleName().equals(roleName)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
 
 	@Override
 	public int hashCode() {

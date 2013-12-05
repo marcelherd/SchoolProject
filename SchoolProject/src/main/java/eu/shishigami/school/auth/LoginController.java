@@ -28,12 +28,7 @@ public class LoginController implements Serializable {
 		if (isLoggedIn()) {
 			String username = SecurityContextHolder.getContext().getAuthentication().getName();
 			UserEntity user = userService.findByUsername(username);
-			
-			for (RoleEntity role : user.getGroup().getRoles()) {
-				if (role.getRoleName().equals("ROLE_ADMIN")) {
-					return true;
-				}
-			}
+			return user.hasRole("ROLE_ADMIN");
 		}
 		
 		return false;
