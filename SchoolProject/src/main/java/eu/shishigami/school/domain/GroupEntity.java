@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 import lombok.Getter;
@@ -32,7 +31,7 @@ public class GroupEntity {
 	@NotBlank
 	private String groupName;
 	
-	@ManyToMany(cascade = CascadeType.ALL, mappedBy = "groups")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<UserEntity> users = new ArrayList<UserEntity>();
 	

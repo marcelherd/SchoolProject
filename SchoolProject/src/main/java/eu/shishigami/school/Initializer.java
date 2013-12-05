@@ -76,17 +76,11 @@ public class Initializer {
 //		userGroup.setRoles(rolesUser);
 //		
 //		userGroup = groupService.save(userGroup);
-//		
-//		List<GroupEntity> adminGroups = new ArrayList<GroupEntity>();
-//		adminGroups.add(adminGroup);
-//		adminUser.setGroups(adminGroups);
-//		
+//
+//		adminUser.setGroup(adminGroup);
 //		adminUser = userService.save(adminUser);
 //		
-//		List<GroupEntity> userGroups = new ArrayList<GroupEntity>();
-//		userGroups.add(userGroup);
-//		normalUser.setGroups(userGroups);
-//		
+//		normalUser.setGroup(userGroup);
 //		normalUser = userService.save(normalUser);
 	}
 
