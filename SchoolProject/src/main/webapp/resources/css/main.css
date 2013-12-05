@@ -1,0 +1,56 @@
+html,body {
+	height: 100%;
+}
+
+body {
+	padding-top: 50px;
+}
+
+.page {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -61px;
+}
+
+.page-body {
+	padding-top: 20px;
+}
+
+#push,.page-footer {
+	height: 60px;
+}
+
+.page-footer {
+	width: 100%;
+	background-color: #F5F5F5;
+}
+
+@media(max-width:767px) {
+	.page-footer {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+.container .credit {
+	margin: 20px 0;
+}
+
+.spacing-right-5 {
+	margin-right: 5px;
+}
+
+.spacing-right-10 {
+	margin-right: 10px;
+}
+
+.spacing-right-15 {
+	margin-right: 15px;
+}
+
+.spacing-right-50 {
+	margin-right: 50px;
+}
