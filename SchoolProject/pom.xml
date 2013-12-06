@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>eu.shishigami</groupId>
 	<artifactId>school</artifactId>
-	<version>0.1.1</version>
+	<version>0.1.2</version>
 	<packaging>war</packaging>
 	<name>SchoolProject</name>
 
