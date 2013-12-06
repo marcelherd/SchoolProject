@@ -65,6 +65,26 @@
 
 		<div class="page-body">
 			<div class="container">
+				<div class="panel panel-default pull-left">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Navigation
+						</h3>
+					</div>
+					<div class="panel-body">
+						<ul class="nav nav-pills nav-stacked">
+							<li>
+								<label label-default="" class="tree-toggle nav-header">Administration</label>
+		                        <ul class="nav tree">
+		                            <li><a href="#{utilityController.contextPath}/pages/admin/users.jsf">Users</a></li>
+		                            <li><a href="#{utilityController.contextPath}/pages/admin/groups.jsf">Groups</a></li>
+		                            <li><a href="#{utilityController.contextPath}/pages/admin/roles.jsf">Roles</a></li>
+		                        </ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			
 				<ui:insert name="bodyContent">[Body Content]</ui:insert>
 			</div>
 		</div>

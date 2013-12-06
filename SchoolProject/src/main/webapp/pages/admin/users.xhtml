@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+	<ui:composition template="/WEB-INF/templates/mainLayoutAdmin.xhtml">
+		<ui:define name="bodyContent">
+		
+			<f:event listener="#{userAdminController.init}" type="preRenderView" />
+			
+			<div class="panel panel-default col-md-offset-2">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						User Administration
+					</h3>
+				</div>
+				<div class="panel-body">
+					<h:form id="userAdminForm">
+						<p:dataTable id="userTable" var="user" value="#{userAdminView.allUsers}" rowKey="#{user.id}" 
+						paginator="true" paginatorPosition="bottom" rows="5" rowsPerPageTemplate="5,10,15"
+						paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+						styleClass="table table-bordered table-hover table-striped">
+												
+							<p:column headerText="Username">
+								#{user.username}
+							</p:column>
+							
+							<p:column headerText="First name">
+								#{user.firstName}
+							</p:column>
+							
+							<p:column headerText="Last name">
+								#{user.lastName}
+							</p:column>
+							
+							<p:column headerText="E-Mail">
+								#{user.email}
+							</p:column>
+						
+						</p:dataTable>
+						
+						<h:commandButton value="Add new user" styleClass="btn btn-default" />
+					</h:form>
+				</div>
+			</div>
+			
+		</ui:define>
+	</ui:composition>
+</html>
