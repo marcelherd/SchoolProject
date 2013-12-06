@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import eu.shishigami.school.constant.RoleEnum;
 import eu.shishigami.school.domain.GroupEntity;
 import eu.shishigami.school.domain.RoleEntity;
 import eu.shishigami.school.domain.UserEntity;
@@ -31,11 +32,11 @@ public class Initializer {
 
 	public void init() {
 //		RoleEntity userRole = new RoleEntity();
-//		userRole.setRoleName("ROLE_USER");
+//		userRole.setRoleName(RoleEnum.USER.getRoleValue());
 //		userRole = roleService.save(userRole);
 //		
 //		RoleEntity adminRole = new RoleEntity();
-//		adminRole.setRoleName("ROLE_ADMIN");
+//		adminRole.setRoleName(RoleEnum.ADMIN.getRoleValue());
 //		adminRole = roleService.save(adminRole);
 //		
 //		GroupEntity adminGroup = new GroupEntity();

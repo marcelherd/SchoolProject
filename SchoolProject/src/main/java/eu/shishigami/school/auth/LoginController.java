@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
+import eu.shishigami.school.constant.RoleEnum;
 import eu.shishigami.school.domain.UserEntity;
 import eu.shishigami.school.service.UserService;
 
@@ -25,7 +26,7 @@ public class LoginController implements Serializable {
 	
 	public boolean isAdmin() {
 		UserEntity user;
-		return (user = getLoggedOnUser()) != null ? user.hasRole("ROLE_ADMIN") : false;
+		return (user = getLoggedOnUser()) != null ? user.hasRole(RoleEnum.ADMIN.getRoleValue()) : false;
 	}
 	
 	public UserEntity getLoggedOnUser() {
