@@ -7,13 +7,20 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
-	<ui:composition template="#{loginController.statusAwareTemplate}">
+	<ui:composition template="/WEB-INF/templates/mainLayoutAdmin.xhtml">
 		<ui:define name="bodyContent">
-			<p>Access denied.</p>
 			
-			<h:outputLink value="#{loginController.getFallbackTarget(utilityController.contextPath)}">
-				Back
-			</h:outputLink>
+			<div class="panel panel-default col-md-offset-2">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						Group Administration
+					</h3>
+				</div>
+				<div class="panel-body">
+					Group
+				</div>
+			</div>
+			
 		</ui:define>
 	</ui:composition>
 </html>
