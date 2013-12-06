@@ -38,4 +38,20 @@ public class LoginController implements Serializable {
 		return null;
 	}
 	
+	public String getStatusAwareTemplate() {
+		if (isLoggedIn()) {
+			return "/WEB-INF/templates/mainLayout.xhtml";
+		} else {
+			return "/WEB-INF/templates/mainLayoutDenied.xhtml";
+		}
+	}
+	
+	public String getFallbackTarget(String contextPath) {
+		if (isLoggedIn()) {
+			return contextPath + "/pages/home.jsf";
+		} else {
+			return contextPath + "index.jsf";
+		}
+	}
+	
 }

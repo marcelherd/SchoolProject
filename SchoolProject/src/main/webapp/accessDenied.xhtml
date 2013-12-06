@@ -7,11 +7,13 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:c="http://java.sun.com/jsp/jstl/core"
 	xmlns:p="http://primefaces.org/ui">
-	<ui:composition template="/WEB-INF/templates/mainLayoutDenied.xhtml">
+	<ui:composition template="#{loginController.statusAwareTemplate}">
 		<ui:define name="bodyContent">
-			<p>Zugriff verweigert.</p>
+			<p>Access denied.</p>
 			
-			<a href="#{utilityController.contextPath}/index.jsf">Zurück</a>
+			<h:outputLink value="#{loginController.getFallbackTarget(utilityController.contextPath)}">
+				Back
+			</h:outputLink>
 		</ui:define>
 	</ui:composition>
 </html>
