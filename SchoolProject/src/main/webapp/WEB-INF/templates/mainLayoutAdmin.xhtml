@@ -21,46 +21,9 @@
 
 	<div class="page">
 		<div class="page-head">
-			<div class="page-navigation">
-				<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span> 
-							<span class="icon-bar"></span> 
-							<span class="icon-bar"></span> 
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="#{utilityController.contextPath}/pages/home.jsf">SchoolProject</a>
-					</div>
-	
-					<div class="collapse navbar-collapse">
-						<!-- Navigation Left -->
-						<ul class="nav navbar-nav navbar-left">
-						
-							<li class="spacing-left-50"><a href="timetable/timetable.jsf">Timetable</a></li>
-							
-							<li><a href="timetable/timetable.jsf">Gradebook</a></li>
-							
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Example</a></li>
-									<li class="divider"></li>
-									<li><a href="#">Separated Example</a></li>
-								</ul>
-							</li>
-							
-						</ul>
-						
-						<!-- Navigation Right -->
-						<ul class="nav navbar-nav navbar-right">
-						
-							<li class="spacing-right-50"><a href="#">Help</a></li>
-							
-						</ul>
-					</div>
-				</nav>
-			</div>
+			<ui:insert name="header">
+				<ui:include src="/WEB-INF/includes/mainMenu.xhtml" />
+			</ui:insert>
 		</div>
 
 		<div class="page-body">
@@ -91,12 +54,9 @@
 	</div>
 
 	<div class="page-footer">
-		<div class="container">
-			<p class="muted credit">
-				Copyright &copy; 2013 BASF IT Services <a class="pull-right" href="#{utilityController.contextPath}/j_spring_security_logout.jsf">Logout</a>
-				<h:outputLink styleClass="pull-right spacing-right-50" rendered="#{loginController.admin}" value="#{utilityController.contextPath}/pages/admin/home.jsf">Administration</h:outputLink>
-			</p>
-		</div>
+		<ui:insert name="footer">
+			<ui:include src="/WEB-INF/includes/authorizedFooter.xhtml" />
+		</ui:insert>
 	</div>
 
 </h:body>

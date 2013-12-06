@@ -21,13 +21,9 @@
 
 	<div class="page">
 		<div class="page-head">
-			<div class="page-navigation">
-				<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-					<div class="navbar-header">
-						<a class="navbar-brand" href="#{utilityController.contextPath}/index.jsf">SchoolProject</a>
-					</div>
-				</nav>
-			</div>
+			<ui:insert name="header">
+				<ui:include src="/WEB-INF/includes/emptyMenu.xhtml" />
+			</ui:insert>
 		</div>
 		
 		<div class="jumbotron">
@@ -48,9 +44,9 @@
 	</div>
 
 	<div class="page-footer">
-		<div class="container">
-			<p class="muted credit">Copyright &copy; 2013 BASF IT Services</p>
-		</div>
+		<ui:insert name="footer">
+			<ui:include src="/WEB-INF/includes/emptyFooter.xhtml" />
+		</ui:insert>
 	</div>
 
 </h:body>

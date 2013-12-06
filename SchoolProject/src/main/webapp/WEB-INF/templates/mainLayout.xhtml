@@ -71,12 +71,9 @@
 	</div>
 
 	<div class="page-footer">
-		<div class="container">
-			<p class="muted credit">
-				Copyright &copy; 2013 BASF IT Services <a class="pull-right" href="#{utilityController.contextPath}/j_spring_security_logout.jsf">Logout</a>
-				<h:outputLink styleClass="pull-right spacing-right-50" rendered="#{loginController.admin}" value="#{utilityController.contextPath}/pages/admin/home.jsf">Administration</h:outputLink>
-			</p>
-		</div>
+		<ui:insert name="footer">
+			<ui:include src="/WEB-INF/includes/authorizedFooter.xhtml" />
+		</ui:insert>
 	</div>
 
 </h:body>
