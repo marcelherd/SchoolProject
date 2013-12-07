@@ -24,6 +24,10 @@
 						paginator="true" paginatorPosition="bottom" rows="5" rowsPerPageTemplate="5,10,15"
 						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 						styleClass="table">
+									
+							<p:column headerText="#">
+								#{user.id}
+							</p:column>
 												
 							<p:column headerText="Username">
 								#{user.username}
@@ -51,8 +55,9 @@
 										<h:outputText styleClass="ui-icon ui-icon-pencil" />
 									</p:commandLink>
 									
-									<p:commandLink id="deleteLink" title="Delete">
+									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":userAdminForm" actionListener="#{deleteUserController.handleDeleteUser(user)}">
 										<h:outputText styleClass="ui-icon ui-icon-trash" />
+										<p:confirm header="Confirmation" message="Really delete this user?" icon="ui-icon-alert" />
 									</p:commandLink>
 								</p:panelGrid>
 							</p:column>
@@ -62,9 +67,14 @@
 						<p:commandButton value="Add new user" styleClass="btn btn-primary" oncomplete="PF('addUserDlg').show();" />
 					</h:form>
 					
-					<p:dialog id="addUserDialog" header="Add User" widgetVar="addUserDlg" modal="true" resizable="false" draggable="false" width="500px">
+					<p:dialog id="addUserDialog" header="Add User" widgetVar="addUserDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
 						<ui:include src="/WEB-INF/includes/dialog/addUserDialog.xhtml" />
 					</p:dialog>
+					
+					<p:confirmDialog global="true" showEffect="fade">  
+				        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+				        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+				    </p:confirmDialog>  
 				</div>
 			</div>
 			

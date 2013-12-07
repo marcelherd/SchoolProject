@@ -1,4 +1,4 @@
-package eu.shishigami.school.web.controller.admin.user;
+package eu.shishigami.school.web.controller.admin.role;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -6,22 +6,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import eu.shishigami.school.service.UserService;
+import eu.shishigami.school.service.RoleService;
 import eu.shishigami.school.util.LoggingUtil;
 
 @Component
 @Scope(value = "session")
 @Slf4j
-public class UserAdminController {
-
-	@Autowired
-	private UserAdminView userAdminView;
+public class RoleAdminController {
 	
 	@Autowired
-	private UserService userService;
+	private RoleAdminView roleAdminView;
+	
+	@Autowired
+	private RoleService roleService;
 
 	public void init() {
-		userAdminView.setAllUsers(userService.findAll());
+		roleAdminView.setAllRoles(roleService.findAll());
+		
 		LoggingUtil.logInitialization(log);
 	}
 	

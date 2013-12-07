@@ -9,6 +9,8 @@
 	xmlns:p="http://primefaces.org/ui">
 	<ui:composition template="/WEB-INF/templates/mainLayoutAdmin.xhtml">
 		<ui:define name="bodyContent">
+		
+			<f:event listener="#{roleAdminController.init}" type="preRenderView" />
 			
 			<div class="panel panel-default col-md-offset-2">
 				<div class="panel-heading">
@@ -17,7 +19,42 @@
 					</h3>
 				</div>
 				<div class="panel-body">
-					Role
+					<h:form id="roleAdminForm">
+						<p:dataTable id="roleTable" var="role" value="#{roleAdminView.allRoles}" rowKey="#{role.id}" 
+						paginator="true" paginatorPosition="bottom" rows="5" rowsPerPageTemplate="5,10,15"
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+						styleClass="table">
+											
+							<p:column headerText="#" styleClass="shortColumn">
+								#{role.id}
+							</p:column>
+												
+							<p:column headerText="Role">
+								#{role.roleName}
+							</p:column>
+							
+							<p:column styleClass="shortColumn">
+								<p:panelGrid id="tableButtonGrid" columns="2" styleClass="noBorder noBackground">
+									<p:commandLink id="editLink" title="Edit">
+										<h:outputText styleClass="ui-icon ui-icon-pencil" />
+									</p:commandLink>
+									
+									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":roleAdminForm">
+										<h:outputText styleClass="ui-icon ui-icon-trash" />
+										<p:confirm header="Confirmation" message="Really delete this role?" icon="ui-icon-alert" />
+									</p:commandLink>
+								</p:panelGrid>
+							</p:column>
+						
+						</p:dataTable>
+						
+						<p:commandButton value="Add new Role" styleClass="btn btn-primary" />
+					</h:form>
+					
+					<p:confirmDialog global="true" showEffect="fade">  
+				        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+				        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+				    </p:confirmDialog>  
 				</div>
 			</div>
 			
