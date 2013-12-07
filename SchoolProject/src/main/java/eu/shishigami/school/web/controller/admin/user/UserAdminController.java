@@ -1,4 +1,4 @@
-package eu.shishigami.school.web.controller.admin;
+package eu.shishigami.school.web.controller.admin.user;
 
 import javax.annotation.PostConstruct;
 

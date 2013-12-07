@@ -22,8 +22,8 @@
 					<h:form id="userAdminForm">
 						<p:dataTable id="userTable" var="user" value="#{userAdminView.allUsers}" rowKey="#{user.id}" 
 						paginator="true" paginatorPosition="bottom" rows="5" rowsPerPageTemplate="5,10,15"
-						paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-						styleClass="table table-bordered table-hover table-striped">
+						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+						styleClass="table">
 												
 							<p:column headerText="Username">
 								#{user.username}
@@ -40,11 +40,31 @@
 							<p:column headerText="E-Mail">
 								#{user.email}
 							</p:column>
+							
+							<p:column headerText="Enabled">
+								#{user.enabled}
+							</p:column>
+							
+							<p:column styleClass="shortColumn">
+								<p:panelGrid id="tableButtonGrid" columns="2" styleClass="noBorder noBackground">
+									<p:commandLink id="editLink" title="Edit">
+										<h:outputText styleClass="ui-icon ui-icon-pencil" />
+									</p:commandLink>
+									
+									<p:commandLink id="deleteLink" title="Delete">
+										<h:outputText styleClass="ui-icon ui-icon-trash" />
+									</p:commandLink>
+								</p:panelGrid>
+							</p:column>
 						
 						</p:dataTable>
 						
-						<h:commandButton value="Add new user" styleClass="btn btn-primary" />
+						<p:commandButton value="Add new user" styleClass="btn btn-primary" oncomplete="PF('addUserDlg').show();" />
 					</h:form>
+					
+					<p:dialog id="addUserDialog" header="Add User" widgetVar="addUserDlg" modal="true" resizable="false" draggable="false" width="500px">
+						<ui:include src="/WEB-INF/includes/dialog/addUserDialog.xhtml" />
+					</p:dialog>
 				</div>
 			</div>
 			
