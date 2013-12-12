@@ -55,9 +55,9 @@
 										<h:outputText styleClass="ui-icon ui-icon-pencil" />
 									</p:commandLink>
 									
-									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":userAdminForm" actionListener="#{deleteUserController.handleDeleteUser(user)}">
+									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":userAdminForm,:deleteUserDialog" actionListener="#{deleteUserController.handleSelectUser(user)}"
+									oncomplete="PF('deleteUserDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-trash" />
-										<p:confirm header="Confirmation" message="Really delete this user?" icon="ui-icon-alert" />
 									</p:commandLink>
 								</p:panelGrid>
 							</p:column>
@@ -71,10 +71,9 @@
 						<ui:include src="/WEB-INF/includes/dialog/addUserDialog.xhtml" />
 					</p:dialog>
 					
-					<p:confirmDialog global="true" showEffect="fade">  
-				        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
-				        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
-				    </p:confirmDialog>  
+					<p:dialog id="deleteUserDialog" header="Delete User" widgetVar="deleteUserDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/deleteUserDialog.xhtml" />
+					</p:dialog>
 				</div>
 			</div>
 			
