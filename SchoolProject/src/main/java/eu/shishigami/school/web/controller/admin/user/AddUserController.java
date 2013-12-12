@@ -10,7 +10,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import eu.shishigami.school.domain.GroupEntity;
 import eu.shishigami.school.domain.UserEntity;
 import eu.shishigami.school.service.GroupService;
 import eu.shishigami.school.service.UserService;
