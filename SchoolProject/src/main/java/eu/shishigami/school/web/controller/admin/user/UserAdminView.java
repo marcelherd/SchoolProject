@@ -2,6 +2,8 @@ package eu.shishigami.school.web.controller.admin.user;
 
 import java.util.List;
 
+import javax.faces.model.SelectItem;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,5 +19,7 @@ import eu.shishigami.school.domain.UserEntity;
 public class UserAdminView {
 	
 	private List<UserEntity> allUsers;
+	
+	private SelectItem[] enabledOptions;
 
 }

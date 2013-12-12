@@ -24,28 +24,28 @@
 						paginator="true" paginatorPosition="bottom" rows="5" rowsPerPageTemplate="5,10,15"
 						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 						styleClass="table">
-									
+							
 							<p:column headerText="#">
 								#{user.id}
 							</p:column>
 												
-							<p:column headerText="Username">
+							<p:column headerText="Username" filterBy="username">
 								#{user.username}
 							</p:column>
 							
-							<p:column headerText="First name">
+							<p:column headerText="First name" filterBy="firstName">
 								#{user.firstName}
 							</p:column>
 							
-							<p:column headerText="Last name">
+							<p:column headerText="Last name" filterBy="lastName">
 								#{user.lastName}
 							</p:column>
 							
-							<p:column headerText="E-Mail">
+							<p:column headerText="E-Mail" filterBy="email">
 								#{user.email}
 							</p:column>
 							
-							<p:column headerText="Enabled">
+							<p:column headerText="Enabled" filterBy="enabled" filterOptions="#{userAdminView.enabledOptions}" filterMatchMode="exact">
 								#{user.enabled}
 							</p:column>
 							

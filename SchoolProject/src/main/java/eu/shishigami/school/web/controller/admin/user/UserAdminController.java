@@ -1,5 +1,7 @@
 package eu.shishigami.school.web.controller.admin.user;
 
+import javax.faces.model.SelectItem;
+
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,11 @@ public class UserAdminController {
 
 	public void init() {
 		userAdminView.setAllUsers(userService.findAll());
+		userAdminView.setEnabledOptions(new SelectItem[] {
+			new SelectItem("", "Select"),
+			new SelectItem("true", "True"),
+			new SelectItem("false", "False")
+		});
 		LoggingUtil.logInitialization(log);
 	}
 	
