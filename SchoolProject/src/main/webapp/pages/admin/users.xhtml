@@ -50,10 +50,15 @@
 							</p:column>
 							
 							<p:column styleClass="shortColumn">
-								<p:panelGrid id="tableButtonGrid" columns="2" styleClass="noBorder noBackground">
+								<p:panelGrid id="tableButtonGrid" columns="3" styleClass="noBorder noBackground">
 									<p:commandLink id="editLink" title="Edit" process="@this" update=":userAdminForm,:editUserDialog" actionListener="#{editUserController.handleSelectUser(user)}"
 									oncomplete="PF('editUserDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-pencil" />
+									</p:commandLink>
+									
+									<p:commandLink id="resetLink" title="Reset password" process="@this" update=":userAdminForm,:resetPasswordDialog" actionListener="#{resetPasswordController.handleSelectUser(user)}"
+									oncomplete="PF('resetPasswordDlg').show();">
+										<h:outputText styleClass="ui-icon ui-icon-key" />
 									</p:commandLink>
 									
 									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":userAdminForm,:deleteUserDialog" actionListener="#{deleteUserController.handleSelectUser(user)}"
@@ -78,6 +83,10 @@
 					
 					<p:dialog id="deleteUserDialog" header="Delete User" widgetVar="deleteUserDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
 						<ui:include src="/WEB-INF/includes/dialog/deleteUserDialog.xhtml" />
+					</p:dialog>
+					
+					<p:dialog id="resetPasswordDialog" header="Reset password" widgetVar="resetPasswordDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/resetPasswordDialog.xhtml" />
 					</p:dialog>
 				</div>
 			</div>
