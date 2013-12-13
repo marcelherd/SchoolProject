@@ -1,7 +1,5 @@
 package eu.shishigami.school.web.controller.admin.user;
 
-import javax.annotation.PostConstruct;
-
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +20,12 @@ public class ResetPasswordController {
 
 	@Autowired
 	private UserService userService;
-	
-	@PostConstruct
+
 	public void init() {
 		LoggingUtil.logInitialization(log);
 	}
 	
-	public void handleSelectUser(UserEntity userEntity) {
+	public void handleSelect(UserEntity userEntity) {
 		resetPasswordView.setUserEntity(userEntity);
 		init();
 	}

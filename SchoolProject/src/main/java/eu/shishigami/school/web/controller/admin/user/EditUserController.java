@@ -1,7 +1,5 @@
 package eu.shishigami.school.web.controller.admin.user;
 
-import javax.annotation.PostConstruct;
-
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,13 +24,12 @@ public class EditUserController {
 	
 	@Autowired
 	private GroupService groupService;
-	
-	@PostConstruct
+
 	public void init() {
 		LoggingUtil.logInitialization(log);
 	}
 	
-	public void handleSelectUser(UserEntity userEntity) {
+	public void handleSelect(UserEntity userEntity) {
 		editUserView.setUserEntity(userEntity);
 		editUserView.setAllGroups(groupService.findAll());
 		init();

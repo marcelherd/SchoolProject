@@ -36,19 +36,6 @@ public class AddUserController {
 		LoggingUtil.logInitialization(log);
 	}
 	
-	public void handleCancel() {
-		UserEntity userEntity = addUserView.getUserEntity();
-		
-		userEntity.setEmail("");
-		userEntity.setEnabled(true);
-		userEntity.setFirstName("");
-		userEntity.setLastName("");
-		userEntity.setPassword("");
-		userEntity.setUsername("");
-		
-		addUserView.setUserEntity(userEntity);
-	}
-	
 	public void handleSave() {
 		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String rawPassword = addUserView.getPassword();
@@ -58,8 +45,6 @@ public class AddUserController {
 		addUserView.setUserEntity(userService.save(addUserView.getUserEntity()));
 		
 		LoggingUtil.logSave(log);
-		
-		handleCancel();
 	}
 
 }

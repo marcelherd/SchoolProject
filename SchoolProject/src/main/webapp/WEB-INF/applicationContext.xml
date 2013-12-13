@@ -22,5 +22,15 @@
 	<context:annotation-config />
 	
 	<bean id="initializationBean" class="eu.shishigami.school.Initializer" init-method="init" lazy-init="false" />
+	
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+		<property name="scopes">
+			<map>
+				<entry key="view">
+					<bean class="eu.shishigami.school.web.scope.ViewScope" />
+				</entry>
+			</map>
+		</property>
+	</bean>
 
 </beans>

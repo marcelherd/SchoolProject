@@ -20,41 +20,54 @@
 				</div>
 				<div class="panel-body">
 					<h:form id="roleAdminForm">
+						<div class="alert alert-danger alert-dismissable">
+							<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+							<strong>Caution!</strong> Roles should not be modified unless explicitly advised by a developer!
+						</div>
+					
 						<p:dataTable id="roleTable" var="role" value="#{roleAdminView.allRoles}" rowKey="#{role.id}" 
 						paginator="true" paginatorPosition="bottom" rows="5" rowsPerPageTemplate="5,10,15"
 						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 						styleClass="table">
 											
-							<p:column headerText="#" styleClass="shortColumn">
+							<p:column headerText="#" styleClass="shortColumn" sortBy="id">
 								#{role.id}
 							</p:column>
 												
-							<p:column headerText="Role">
+							<p:column headerText="Role" sortBy="roleName" filterBy="roleName">
 								#{role.roleName}
 							</p:column>
 							
 							<p:column styleClass="shortColumn">
-								<p:panelGrid id="tableButtonGrid" columns="2" styleClass="noBorder noBackground">
-									<p:commandLink id="editLink" title="Edit">
+								<p:panelGrid id="tableButtonGrid" columns="2" styleClass="noBorder noBackground">									
+									<p:commandLink id="editLink" title="Edit" process="@this" update=":roleAdminForm,:editRoleDialog" actionListener="#{editRoleController.handleSelect(role)}"
+									oncomplete="PF('editRoleDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-pencil" />
 									</p:commandLink>
 									
-									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":roleAdminForm">
+									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":roleAdminForm,:deleteRoleDialog" actionListener="#{deleteRoleController.handleSelect(role)}"
+									oncomplete="PF('deleteRoleDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-trash" />
-										<p:confirm header="Confirmation" message="Really delete this role?" icon="ui-icon-alert" />
 									</p:commandLink>
 								</p:panelGrid>
 							</p:column>
 						
 						</p:dataTable>
 						
-						<p:commandButton value="Add new role" styleClass="btn btn-primary" />
+						<p:commandButton value="Add new role" styleClass="btn btn-primary" oncomplete="PF('addRoleDlg').show();" />
 					</h:form>
 					
-					<p:confirmDialog global="true" showEffect="fade">  
-				        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
-				        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
-				    </p:confirmDialog>  
+					<p:dialog id="addRoleDialog" header="Add Role" widgetVar="addRoleDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/addRoleDialog.xhtml" />
+					</p:dialog>
+					
+					<p:dialog id="editRoleDialog" header="Edit Role" widgetVar="editRoleDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/editRoleDialog.xhtml" />
+					</p:dialog>
+					
+					<p:dialog id="deleteRoleDialog" header="Delete Role" widgetVar="deleteRoleDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/deleteRoleDialog.xhtml" />
+					</p:dialog>
 				</div>
 			</div>
 			
