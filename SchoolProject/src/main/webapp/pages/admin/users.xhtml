@@ -51,7 +51,8 @@
 							
 							<p:column styleClass="shortColumn">
 								<p:panelGrid id="tableButtonGrid" columns="2" styleClass="noBorder noBackground">
-									<p:commandLink id="editLink" title="Edit">
+									<p:commandLink id="editLink" title="Edit" process="@this" update=":userAdminForm,:editUserDialog" actionListener="#{editUserController.handleSelectUser(user)}"
+									oncomplete="PF('editUserDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-pencil" />
 									</p:commandLink>
 									
@@ -69,6 +70,10 @@
 					
 					<p:dialog id="addUserDialog" header="Add User" widgetVar="addUserDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
 						<ui:include src="/WEB-INF/includes/dialog/addUserDialog.xhtml" />
+					</p:dialog>
+					
+					<p:dialog id="editUserDialog" header="Edit User" widgetVar="editUserDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/editUserDialog.xhtml" />
 					</p:dialog>
 					
 					<p:dialog id="deleteUserDialog" header="Delete User" widgetVar="deleteUserDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
