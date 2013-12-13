@@ -1,5 +1,7 @@
 package eu.shishigami.school.web.controller.admin.user;
 
+import java.io.Serializable;
+
 import javax.faces.model.SelectItem;
 
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +16,9 @@ import eu.shishigami.school.util.LoggingUtil;
 @Component
 @Scope(value = "session")
 @Slf4j
-public class UserAdminController {
+public class UserAdminController implements Serializable {
+
+	private static final long serialVersionUID = 8664134743033477762L;
 
 	@Autowired
 	private UserAdminView userAdminView;

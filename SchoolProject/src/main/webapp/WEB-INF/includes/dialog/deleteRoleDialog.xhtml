@@ -9,23 +9,23 @@
 		<div class="panel panel-default panel-no-margin">
 			<div class="panel-heading">
 				<h3 class="panel-title">
-					Delete User
+					Delete Role
 				</h3>
 			</div>
 			<div class="panel-body">
-				<h:form id="deleteUserForm" styleClass="form-horizontal">
+				<h:form id="deleteRoleForm" styleClass="form-horizontal">
 				
 					<div class="alert alert-danger">
-						This will delete the user <strong>#{deleteUserView.userEntity.username}</strong>!
+						This will delete the role <strong>#{deleteRoleView.roleEntity.roleName}</strong>!
 					</div>
 
 					<div class="form-group">
 						<div class="col-md-offset-3 col-md-1">
-							<p:commandButton styleClass="btn btn-primary" actionListener="#{deleteUserController.handleDelete}" oncomplete="if (!args.validationFailed) PF('deleteUserDlg').hide();" value="Delete" update=":userAdminForm" />
+							<p:commandButton styleClass="btn btn-primary" actionListener="#{deleteRoleController.handleDelete}" oncomplete="if (!args.validationFailed) PF('deleteRoleDlg').hide();" value="Delete" update=":roleAdminForm" />
 						</div>
 						
 						<div class="col-md-offset-2 col-md-1">
-							<p:commandButton styleClass="btn btn-default" oncomplete="PF('deleteUserDlg').hide();" value="Cancel" process="@this" />
+							<p:commandButton styleClass="btn btn-default" oncomplete="PF('deleteRoleDlg').hide();" value="Cancel" process="@this" />
 						</div>
 					</div>
 					

@@ -51,17 +51,17 @@
 							
 							<p:column styleClass="shortColumn">
 								<p:panelGrid id="tableButtonGrid" columns="3" styleClass="noBorder noBackground">
-									<p:commandLink id="editLink" title="Edit" process="@this" update=":userAdminForm,:editUserDialog" actionListener="#{editUserController.handleSelectUser(user)}"
+									<p:commandLink id="editLink" title="Edit" process="@this" update=":userAdminForm,:editUserDialog" actionListener="#{editUserController.handleSelect(user)}"
 									oncomplete="PF('editUserDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-pencil" />
 									</p:commandLink>
 									
-									<p:commandLink id="resetLink" title="Reset password" process="@this" update=":userAdminForm,:resetPasswordDialog" actionListener="#{resetPasswordController.handleSelectUser(user)}"
+									<p:commandLink id="resetLink" title="Reset password" process="@this" update=":userAdminForm,:resetPasswordDialog" actionListener="#{resetPasswordController.handleSelect(user)}"
 									oncomplete="PF('resetPasswordDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-key" />
 									</p:commandLink>
 									
-									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":userAdminForm,:deleteUserDialog" actionListener="#{deleteUserController.handleSelectUser(user)}"
+									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":userAdminForm,:deleteUserDialog" actionListener="#{deleteUserController.handleSelect(user)}"
 									oncomplete="PF('deleteUserDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-trash" />
 									</p:commandLink>
