@@ -31,11 +31,11 @@ public class GroupEntity {
 	@NotBlank
 	private String groupName;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "group")
+	@OneToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, mappedBy = "group")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<UserEntity> users = new ArrayList<UserEntity>();
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
 	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<RoleEntity> roles = new ArrayList<RoleEntity>();
 

@@ -47,7 +47,7 @@ public class UserEntity {
 
 	private boolean enabled = true;
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH })
 	@JoinColumn(name = "group_id")
 	private GroupEntity group;
 	
