@@ -25,27 +25,27 @@
 						paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
 						styleClass="table">
 							
-							<p:column headerText="#">
+							<p:column headerText="#" sortBy="id">
 								#{user.id}
 							</p:column>
 												
-							<p:column headerText="Username" filterBy="username">
+							<p:column headerText="Username" filterBy="username" sortBy="username">
 								#{user.username}
 							</p:column>
 							
-							<p:column headerText="First name" filterBy="firstName">
+							<p:column headerText="First name" filterBy="firstName" sortBy="firstName">
 								#{user.firstName}
 							</p:column>
 							
-							<p:column headerText="Last name" filterBy="lastName">
+							<p:column headerText="Last name" filterBy="lastName" sortBy="lastName">
 								#{user.lastName}
 							</p:column>
 							
-							<p:column headerText="E-Mail" filterBy="email">
+							<p:column headerText="E-Mail" filterBy="email" sortBy="email">
 								#{user.email}
 							</p:column>
 							
-							<p:column headerText="Enabled" filterBy="enabled" filterOptions="#{userAdminView.enabledOptions}" filterMatchMode="exact">
+							<p:column headerText="Enabled" filterBy="enabled" filterOptions="#{userAdminView.enabledOptions}" filterMatchMode="exact" sortBy="enabled">
 								#{user.enabled}
 							</p:column>
 							
