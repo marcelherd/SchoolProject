@@ -86,6 +86,10 @@ body {
 	margin-bottom: 0px;
 }
 
+.form-control.uppercase {
+	text-transform: uppercase;
+}
+
 .dialog-label {
 	padding-top: 10px;
 }

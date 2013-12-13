@@ -17,8 +17,9 @@
 				<h:form id="addRoleForm" styleClass="form-horizontal">
 					<div class="form-group">
 						<label for="roleNameInput" class="col-md-3 control-label dialog-label">Role name</label>
-						<div class="col-md-7">
-							<p:inputText value="#{addRoleView.roleEntity.roleName}" styleClass="form-control" id="roleNameInput" placeholder="Role name" />
+						<div class="col-md-7 input-group">
+							<span class="input-group-addon">ROLE_</span>
+							<p:inputText value="#{addRoleView.roleEntity.roleName}" styleClass="form-control uppercase" id="roleNameInput" placeholder="Role name" />
 						</div>
 					</div>
 					

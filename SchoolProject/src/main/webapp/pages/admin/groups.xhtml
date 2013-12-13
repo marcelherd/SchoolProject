@@ -35,26 +35,34 @@
 							
 							<p:column styleClass="shortColumn">
 								<p:panelGrid id="tableButtonGrid" columns="2" styleClass="noBorder noBackground">
-									<p:commandLink id="editLink" title="Edit">
+									<p:commandLink id="editLink" title="Edit" process="@this" update=":groupAdminForm,:editGroupDialog" actionListener="#{editGroupController.handleSelect(group)}"
+									oncomplete="PF('editGroupDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-pencil" />
 									</p:commandLink>
 									
-									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":groupAdminForm">
+									<p:commandLink id="deleteLink" title="Delete" process="@this" update=":groupAdminForm,:deleteGroupDialog" actionListener="#{deleteGroupController.handleSelect(group)}"
+									oncomplete="PF('deleteGroupDlg').show();">
 										<h:outputText styleClass="ui-icon ui-icon-trash" />
-										<p:confirm header="Confirmation" message="Really delete this group?" icon="ui-icon-alert" />
 									</p:commandLink>
 								</p:panelGrid>
 							</p:column>
 						
 						</p:dataTable>
 						
-						<p:commandButton value="Add new group" styleClass="btn btn-primary" />
+						<p:commandButton value="Add new group" styleClass="btn btn-primary" oncomplete="PF('addGroupDlg').show();" />
 					</h:form>
 					
-					<p:confirmDialog global="true" showEffect="fade">  
-				        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
-				        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
-				    </p:confirmDialog>  
+					<p:dialog id="addGroupDialog" header="Add Group" widgetVar="addGroupDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/addGroupDialog.xhtml" />
+					</p:dialog>
+					
+					<p:dialog id="editGroupDialog" header="Edit Group" widgetVar="editGroupDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/editGroupDialog.xhtml" />
+					</p:dialog>
+					
+					<p:dialog id="deleteGroupDialog" header="Delete Group" widgetVar="deleteGroupDlg" modal="true" resizable="false" draggable="false" width="500px" showEffect="fade">
+						<ui:include src="/WEB-INF/includes/dialog/deleteGroupDialog.xhtml" />
+					</p:dialog>
 				</div>
 			</div>
 			
